@@ -1,0 +1,1454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2; /* Soft light gray background */
+            font-family: Arial, sans-serif;
+        }
+    
+        h1 {
+            color: #4a4a4a; /* Neutral text color */
+            font-size: 1.5rem;
+            font-weight: normal;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            font-weight: normal;
+        }
+    
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+    
+        .table-responsive {
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 5px;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+            background: white; /* Ensure background stays consistent */
+        }
+    
+        .table {
+            margin: 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+    
+        .table td, .table th {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap; /* Prevent table cells from wrapping */
+        }
+    
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light gray alternating rows */
+        }
+    
+        .btn-group .btn {
+            margin: 2px;
+        }
+    
+        .btn-primary, .btn-danger, .btn-success {
+            border: none;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+        }
+    
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    
+        .btn-success {
+            background-color: #28a745;
+        }
+    
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+    
+        .event-date-line {
+            color: #343a40;
+        }
+    
+        .event-time-line {
+            color: #6c757d;
+        }
+    
+        @media (max-width: 768px) {
+            .table th, .table td {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    
+    
+    
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2; /* Soft light gray background */
+            font-family: Arial, sans-serif;
+        }
+    
+        h1 {
+            color: #4a4a4a; /* Neutral text color */
+            font-size: 1.5rem;
+            font-weight: normal;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            font-weight: normal;
+        }
+    
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+    
+        .table-responsive {
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 5px;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+            background: white; /* Ensure background stays consistent */
+        }
+    
+        .table {
+            margin: 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+    
+        .table td, .table th {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap; /* Prevent table cells from wrapping */
+        }
+    
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light gray alternating rows */
+        }
+    
+        .btn-group .btn {
+            margin: 2px;
+        }
+    
+        .btn-primary, .btn-danger, .btn-success {
+            border: none;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+        }
+    
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    
+        .btn-success {
+            background-color: #28a745;
+        }
+    
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+    
+        .event-date-line {
+            color: #343a40;
+        }
+    
+        .event-time-line {
+            color: #6c757d;
+        }
+    
+        @media (max-width: 768px) {
+            .table th, .table td {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    
+    
+    
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div style="display: flex; justify-content: flex-end; padding: 10px;"> 
+            <a href="/" style="
+                display: inline-block; 
+                background-color: #007bff; /* Blue background */
+                color: white; 
+                padding: 10px 20px; 
+                font-size: 14px; 
+                font-weight: bold; 
+                text-align: center; 
+                text-decoration: none; 
+                border-radius: 5px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                transition: all 0.3s ease; 
+                border: none; /* No border */
+                cursor: pointer;
+            " 
+            onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='translateY(-2px)';" 
+            onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='translateY(0)';" 
+            onmousedown="this.style.transform='translateY(0)';" 
+            onmouseup="this.style.transform='translateY(-2px)';">
+                Go Back to Main Page
+            </a>
+        </div>
+        <h1 class="text-center mb-4">Database Tables</h1>
+
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="table1-tab" data-bs-toggle="tab" data-bs-target="#table1" type="button" role="tab" aria-controls="table1" aria-selected="true">
+                    PAST EVENTS
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="table2-tab" data-bs-toggle="tab" data-bs-target="#table2" type="button" role="tab" aria-controls="table2" aria-selected="false">
+                    UPCOMING EVENTS
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="table5-tab" data-bs-toggle="tab" data-bs-target="#table5" type="button" role="tab" aria-controls="table5" aria-selected="false">
+                    PENDING EVENTS
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="table3-tab" data-bs-toggle="tab" data-bs-target="#table3" type="button" role="tab" aria-controls="table3" aria-selected="false">
+                    EMPLOYEE RECORDS
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="table4-tab" data-bs-toggle="tab" data-bs-target="#table4" type="button" role="tab" aria-controls="table4" aria-selected="false">
+                    EVENT STATISTICS
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- Table 1 Content -->
+            <div class="tab-pane fade show active" id="table1" role="tabpanel" aria-labelledby="table1-tab">
+                <div class="table-responsive mt-3">
+                    <h1>Completed Event Records</h1>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>Event ID</th>
+                                <th>Event Name</th>
+                                <th>Date of Event</th>
+                                <th>Time of Event</th>
+                                <th>Event Address</th>
+                                <th>Event City</th>
+                                <th>Event State</th>
+                                <th>Event Zip</th>
+                                <th>Completed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td>9</td>
+                                    <td>Winter Sewing Retreat</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">1/5/2025</span>
+                                            <span class="event-time-line">All day</span>
+                                        </div>
+                                    </td>
+
+                                    <td>All day</td>
+                                    <td>606 Fir Ln</td>
+                                    <td>Park City</td>
+                                    <td>UT</td>
+                                    <td>84060</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/9" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Winter Sewing Retreat?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/9"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>7</td>
+                                    <td>Sewing Meetup</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/24/2024</span>
+                                            <span class="event-time-line">Afternoon</span>
+                                        </div>
+                                    </td>
+
+                                    <td>Afternoon</td>
+                                    <td>404 Redwood Dr</td>
+                                    <td>Provo</td>
+                                    <td>UT</td>
+                                    <td>84601</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/7" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing Meetup?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/7"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>5</td>
+                                    <td>Holiday Sewing Party</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/20/2024</span>
+                                            <span class="event-time-line">Evening</span>
+                                        </div>
+                                    </td>
+
+                                    <td>Evening</td>
+                                    <td>202 Pine St</td>
+                                    <td>Provo</td>
+                                    <td>UT</td>
+                                    <td>84604</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/5" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Holiday Sewing Party?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/5"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>4</td>
+                                    <td>Sewing for Charity</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/17/2024</span>
+                                            <span class="event-time-line">Morning</span>
+                                        </div>
+                                    </td>
+
+                                    <td>Morning</td>
+                                    <td>101 Maple Ave</td>
+                                    <td>Provo</td>
+                                    <td>UT</td>
+                                    <td>84606</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/4" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Charity?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/4"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>35</td>
+                                    <td>help</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/13/2024</span>
+                                            <span class="event-time-line">20:09</span>
+                                        </div>
+                                    </td>
+
+                                    <td>20:09</td>
+                                    <td>14111 Winfield Scott Way</td>
+                                    <td>Draper</td>
+                                    <td>UT</td>
+                                    <td>84020</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/35" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: help?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/35"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>23</td>
+                                    <td>Sewing for Kids in Need</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/12/2024</span>
+                                            <span class="event-time-line">10:00 AM - 3:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 3:00 PM</td>
+                                    <td>678 Sunset Blvd</td>
+                                    <td>Oahu</td>
+                                    <td>Hawaii</td>
+                                    <td>96819</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/23" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Kids in Need?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/23"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>2</td>
+                                    <td>Crafting &amp; Sewing</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/12/2024</span>
+                                            <span class="event-time-line">Morning</span>
+                                        </div>
+                                    </td>
+
+                                    <td>Morning</td>
+                                    <td>456 Oak Rd</td>
+                                    <td>Salt Lake City</td>
+                                    <td>UT</td>
+                                    <td>84111</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/2" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Crafting &amp; Sewing?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/2"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>1</td>
+                                    <td>Sewing Workshop</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/10/2024</span>
+                                            <span class="event-time-line">Afternoon</span>
+                                        </div>
+                                    </td>
+
+                                    <td>Afternoon</td>
+                                    <td>123 Main St</td>
+                                    <td>Provo</td>
+                                    <td>UT</td>
+                                    <td>84601</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/1" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing Workshop?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/1"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>30</td>
+                                    <td>Sewing for Local Veterans</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/1/2024</span>
+                                            <span class="event-time-line">12:00 PM - 3:30 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>12:00 PM - 3:30 PM</td>
+                                    <td>222 Liberty St</td>
+                                    <td>Waikiki</td>
+                                    <td>Hawaii</td>
+                                    <td>96825</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/30" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Local Veterans?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/30"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>25</td>
+                                    <td>Holiday Sewing Sale</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">11/20/2024</span>
+                                            <span class="event-time-line">1:00 PM - 4:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>1:00 PM - 4:00 PM</td>
+                                    <td>333 Plaza St</td>
+                                    <td>Kailua</td>
+                                    <td>Hawaii</td>
+                                    <td>96744</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/25" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Holiday Sewing Sale?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/25"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>22</td>
+                                    <td>Advanced Sewing Techniques</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">11/1/2024</span>
+                                            <span class="event-time-line">10:00 AM - 1:30 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 1:30 PM</td>
+                                    <td>345 Waikiki St</td>
+                                    <td>Honolulu</td>
+                                    <td>Hawaii</td>
+                                    <td>96818</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/22" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Advanced Sewing Techniques?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/22"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>21</td>
+                                    <td>Sewing with Love</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">10/5/2024</span>
+                                            <span class="event-time-line">1:00 PM - 5:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>1:00 PM - 5:00 PM</td>
+                                    <td>234 Ocean Dr</td>
+                                    <td>Molokai</td>
+                                    <td>Hawaii</td>
+                                    <td>96748</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/21" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing with Love?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/21"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>29</td>
+                                    <td>Sewing for Adults</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">9/25/2024</span>
+                                            <span class="event-time-line">10:00 AM - 1:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 1:00 PM</td>
+                                    <td>3500 King St</td>
+                                    <td>Honolulu</td>
+                                    <td>Hawaii</td>
+                                    <td>96820</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/29" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Adults?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/29"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>28</td>
+                                    <td>Back-to-School Sewing</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">8/30/2024</span>
+                                            <span class="event-time-line">9:00 AM - 4:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>9:00 AM - 4:00 PM</td>
+                                    <td>2000 North Ave</td>
+                                    <td>Lahaina</td>
+                                    <td>Hawaii</td>
+                                    <td>96762</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/28" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Back-to-School Sewing?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/28"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>19</td>
+                                    <td>Children’s Sewing Class</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">8/15/2024</span>
+                                            <span class="event-time-line">9:00 AM - 11:00 AM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>9:00 AM - 11:00 AM</td>
+                                    <td>789 Pineapple St</td>
+                                    <td>Lahaina</td>
+                                    <td>Hawaii</td>
+                                    <td>96761</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/19" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Children’s Sewing Class?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/19"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>18</td>
+                                    <td>Sewing and Meditation</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">7/22/2024</span>
+                                            <span class="event-time-line">10:00 AM - 1:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 1:00 PM</td>
+                                    <td>678 North St</td>
+                                    <td>Kailua</td>
+                                    <td>Hawaii</td>
+                                    <td>96740</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/18" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing and Meditation?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/18"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>17</td>
+                                    <td>Sew for a Cause</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">6/18/2024</span>
+                                            <span class="event-time-line">9:00 AM - 4:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>9:00 AM - 4:00 PM</td>
+                                    <td>567 South St</td>
+                                    <td>Hilo</td>
+                                    <td>Hawaii</td>
+                                    <td>96720</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/17" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sew for a Cause?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/17"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>16</td>
+                                    <td>Fashion Show and Sew</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">5/5/2024</span>
+                                            <span class="event-time-line">12:00 PM - 5:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>12:00 PM - 5:00 PM</td>
+                                    <td>345 Ala Moana Blvd</td>
+                                    <td>Honolulu</td>
+                                    <td>Hawaii</td>
+                                    <td>96816</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/16" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Fashion Show and Sew?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/16"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>15</td>
+                                    <td>Sew and Tell</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">4/12/2024</span>
+                                            <span class="event-time-line">10:00 AM - 2:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 2:00 PM</td>
+                                    <td>1014 Queen St</td>
+                                    <td>Waikiki</td>
+                                    <td>Hawaii</td>
+                                    <td>96815</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/15" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sew and Tell?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/15"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>27</td>
+                                    <td>Sewing for a Cause: Quilts</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">4/10/2024</span>
+                                            <span class="event-time-line">11:00 AM - 3:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>11:00 AM - 3:00 PM</td>
+                                    <td>1000 Pacific St</td>
+                                    <td>Molokai</td>
+                                    <td>Hawaii</td>
+                                    <td>96770</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/27" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for a Cause: Quilts?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/27"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>14</td>
+                                    <td>Kids Craft and Sew</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">3/10/2024</span>
+                                            <span class="event-time-line">1:00 PM - 3:30 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>1:00 PM - 3:30 PM</td>
+                                    <td>789 Kapiolani Blvd</td>
+                                    <td>Kailua</td>
+                                    <td>Hawaii</td>
+                                    <td>96734</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/14" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Kids Craft and Sew?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/14"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>26</td>
+                                    <td>Sewing and Coffee</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">2/25/2024</span>
+                                            <span class="event-time-line">10:00 AM - 12:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 12:00 PM</td>
+                                    <td>567 Beach Rd</td>
+                                    <td>Hilo</td>
+                                    <td>Hawaii</td>
+                                    <td>96721</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/26" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing and Coffee?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/26"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>13</td>
+                                    <td>Community Sewing Workshop</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">2/20/2024</span>
+                                            <span class="event-time-line">9:00 AM - 11:00 AM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>9:00 AM - 11:00 AM</td>
+                                    <td>456 Market Ave</td>
+                                    <td>Honolulu</td>
+                                    <td>Hawaii</td>
+                                    <td>96814</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/13" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Community Sewing Workshop?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/13"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>12</td>
+                                    <td>Sewing for Charity</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">1/15/2024</span>
+                                            <span class="event-time-line">10:00 AM - 1:00 PM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>10:00 AM - 1:00 PM</td>
+                                    <td>123 Main St</td>
+                                    <td>Oahu</td>
+                                    <td>Hawaii</td>
+                                    <td>96813</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/12" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Charity?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/12"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>24</td>
+                                    <td>Sewing for Beginners</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">1/10/2024</span>
+                                            <span class="event-time-line">9:00 AM - 11:00 AM</span>
+                                        </div>
+                                    </td>
+
+                                    <td>9:00 AM - 11:00 AM</td>
+                                    <td>1012 Royal St</td>
+                                    <td>Waikiki</td>
+                                    <td>Hawaii</td>
+                                    <td>96822</td>
+                                    <td>Yes</td>
+                                    <td>
+                                        <a href="/editPastEvent/24" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the past event: Sewing for Beginners?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/24"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table 2 Content -->
+            <div class="tab-pane fade" id="table2" role="tabpanel" aria-labelledby="table2-tab">
+                <div class="table-responsive mt-3">
+                    <h1>Upcoming Event Records</h1>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>Event ID</th>
+                                <th>Event Name</th>
+                                <th>Date of Event</th>
+                                <th>Time</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Zip</th>
+                                <th>Attendance</th>
+                                <th>Duration</th>
+                                <th>Completed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td>8</td>
+                                    <td>New Year’s Eve Crafting</td>
+                                    <td>
+                                        <div class="event-date">
+                                            <span class="event-date-line">12/31/2024</span>
+                                            <span class="event-time-line">Evening</span>
+                                        </div>
+                                    </td>
+                                    <td>Evening</td>
+                                    <td>505 Aspen Rd</td>
+                                    <td>Salt Lake City</td>
+                                    <td>UT</td>
+                                    <td>84101</td>
+                                    <td>TBD</td>
+                                    <td>TBD</td>
+                                    <td>No</td>
+                                    <td>
+                                        <a href="/editUpcomingEvent/8" class="btn btn-sm btn-primary">Edit</a>
+                                        <form 
+                                            onsubmit="return confirm('Are you sure you want to delete the upcoming event: New Year’s Eve Crafting?')" 
+                                            method="POST" 
+                                            action="/deleteEvent/8"
+                                        >
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+<!-- Table 3 Content -->
+<div class="tab-pane fade" id="table3" role="tabpanel" aria-labelledby="table3-tab">
+    <div class="table-responsive mt-3">
+        <h1>Employee Records</h1>
+        <div class="d-flex justify-content-center my-3">
+            <a href="/addEmployee" class="btn btn-success">+ Add Employee </a>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <td>1</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>555-1234</td>
+                        <td>johndoe34</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/1" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/1" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>2</td>
+                        <td>Jane</td>
+                        <td>Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>555-2345</td>
+                        <td>janesmith</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/2" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/2" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>4</td>
+                        <td>Emily</td>
+                        <td>Davis</td>
+                        <td>emily.davis@example.com</td>
+                        <td>555-4567</td>
+                        <td>emilydavis</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/4" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/4" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>5</td>
+                        <td>Sarah</td>
+                        <td>Williams</td>
+                        <td>sarah.williams@example.com</td>
+                        <td>555-5678</td>
+                        <td>sarahwilliams</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/5" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/5" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>6</td>
+                        <td>David</td>
+                        <td>Brown</td>
+                        <td>david.brown@example.com</td>
+                        <td>555-6789</td>
+                        <td>davidbrown</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/6" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/6" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>7</td>
+                        <td>Laura</td>
+                        <td>Miller</td>
+                        <td>laura.miller@example.com</td>
+                        <td>555-7890</td>
+                        <td>lauramiller</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/7" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/7" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>8</td>
+                        <td>James</td>
+                        <td>Wilson</td>
+                        <td>james.wilson@example.com</td>
+                        <td>555-8901</td>
+                        <td>jameswilson</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/8" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/8" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>9</td>
+                        <td>Olivia</td>
+                        <td>Moore</td>
+                        <td>olivia.moore@example.com</td>
+                        <td>555-9012</td>
+                        <td>oliviamoore</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/9" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/9" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>10</td>
+                        <td>William</td>
+                        <td>Taylor</td>
+                        <td>william.taylor@example.com</td>
+                        <td>555-0123</td>
+                        <td>williamtaylor</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/10" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/10" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>11</td>
+                        <td>Gigi</td>
+                        <td>Enn</td>
+                        <td>gigi@gmail.com</td>
+                        <td>384-237-4823</td>
+                        <td>gigi</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/11" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/11" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>12</td>
+                        <td>Jake</td>
+                        <td>Woolston</td>
+                        <td>jakers@gmail.com</td>
+                        <td>234-929-3849</td>
+                        <td>jakers</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/12" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/12" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>13</td>
+                        <td>Gabe</td>
+                        <td>Maires</td>
+                        <td>gabebaby@gmail.com</td>
+                        <td>298-434-9824</td>
+                        <td>gabers</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/editEmployee/13" class="btn btn-sm btn-primary">Edit</a>
+
+                                <form action="/deleteEmployee/13" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+         <!-- Table 5 Content -->
+<div class="tab-pane fade" id="table5" role="tabpanel" aria-labelledby="table5-tab">
+    <h1>Pending Events</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Event ID</th>
+                <th>Event Name</th>
+                
+                <th>Date of Event</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>20</td>
+                    <td>Sewing for the Environment</td>
+                    <td>
+                        <div class="event-date">
+                            <span class="event-date-line">9/20/2024</span>
+                            <span class="event-time-line">12:00 PM - 3:00 PM</span>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- Approve Button -->
+                        <form action="/approveEvent/20" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+
+                        <!-- Reject Button -->
+                        <form action="/rejectEvent/20" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td>Advanced Sewing Techniques</td>
+                    <td>
+                        <div class="event-date">
+                            <span class="event-date-line">12/22/2024</span>
+                            <span class="event-time-line">Morning</span>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- Approve Button -->
+                        <form action="/approveEvent/6" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+
+                        <!-- Reject Button -->
+                        <form action="/rejectEvent/6" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td>Kids Craft Day</td>
+                    <td>
+                        <div class="event-date">
+                            <span class="event-date-line">1/10/2025</span>
+                            <span class="event-time-line">Afternoon</span>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- Approve Button -->
+                        <form action="/approveEvent/10" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+
+                        <!-- Reject Button -->
+                        <form action="/rejectEvent/10" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+            <!-- Table 4 Content -->
+            <div class="tab-pane fade" id="table4" role="tabpanel" aria-labelledby="table4-tab">
+                <h2>Event Statistics</h2>
+                <p>Statistics coming soon!</p>
+                <div class='tableauPlaceholder' id='viz1733454425918' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Je&#47;JenDashboard&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='JenDashboard&#47;Dashboard1' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Je&#47;JenDashboard&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1733454425918');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.minHeight='1300px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+
+
+
+    <!-- Bootstrap JS (for tabs to function) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

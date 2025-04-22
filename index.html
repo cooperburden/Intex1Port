@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle Shelter Project</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Font Awesome Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        #chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        #chat-button:hover {
+            transform: scale(1.1);
+            /* Slightly enlarge on hover */
+        }
+
+        /* Chat Box */
+        #chat-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #chat-box>div:first-child {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ccc;
+        }
+
+        #chat-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #chat-send {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        #chat-send:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+        }
+
+        /* Chat Messages */
+        .user-message {
+            text-align: right;
+            background-color: #e1f5fe;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin: 5px 0;
+            display: inline-block;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .bot-message {
+            text-align: left;
+            background-color: #e8eaf6;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin: 5px 0;
+            display: inline-block;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        /* Style for the circular logo */
+        .logo {
+            width: 40px;
+            /* Adjust this size as needed */
+            height: 40px;
+            /* Match width for a perfect circle */
+            object-fit: cover;
+            /* Ensures the image is properly cropped */
+            border-radius: 50%;
+            /* Makes the image a perfect circle */
+            border: 2px solid #f8f9fa;
+            /* Optional: add a border for a polished look */
+        }
+
+        /* Wrapper for Header and Section */
+        .who-weve-helped-wrapper {
+            margin: 30px auto;
+            /* Space above and below the entire block */
+            text-align: center;
+            /* Center-aligns the header text */
+        }
+
+        /* Section Styling */
+        .who-weve-helped-section {
+            margin-top: 30px;
+            /* Creates space between the header and section */
+        }
+
+        .who-weve-helped-section h2 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Card Styling */
+        .who-weve-helped-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Centers the image horizontally */
+            justify-content: space-between;
+            /* Ensures proper spacing between elements */
+            height: 100%;
+            /* Ensures equal card heights */
+        }
+
+        .who-weve-helped-card:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Image Styling */
+        .who-weve-helped-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #857e7e;
+            display: block;
+            /* Ensures proper rendering */
+        }
+
+        /* Text Styling */
+        .who-weve-helped-card h5 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .who-weve-helped-card p.subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .who-weve-helped-card p.description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        .who-weve-helped-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #857e7e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: auto;
+            /* Pushes button to the bottom */
+        }
+
+        .who-weve-helped-card a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Row Styling for Equal Heights */
+        .who-weve-helped-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: stretch;
+            /* Ensures all cards have equal height */
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 768px) {
+            .who-weve-helped-row {
+                flex-direction: column;
+            }
+        }
+
+        /* Generic Section Styling */
+        .section {
+            margin: 60px 0;
+            background-color: #f9f9f9;
+            padding: 40px 0;
+        }
+
+        .background-container {
+            background-color: #f7f7f7;
+            margin: 60px auto;
+            /* Adds vertical spacing and centers the container */
+            padding: 40px;
+            width: 90%;
+            /* Adjust width to fill most of the page */
+            max-width: 1200px;
+            /* Sets a maximum width for larger screens */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Optional: Subtle shadow */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+        }
+
+        /* Header Box Styling */
+        .header-box {
+            display: flex;
+            /* Enables flexbox */
+            justify-content: center;
+            /* Centers text horizontally */
+            align-items: center;
+            /* Centers text vertically */
+            color: #333;
+            /* Light gray background */
+            border: 0px solid #ddd;
+            /* Subtle border */
+            padding: 20px;
+            /* Adds space inside the box */
+            text-align: center;
+            /* Centers text alignment inside the box */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+            /* Optional: Subtle shadow */
+            width: 100%;
+            /* Full width of the container */
+            height: 100px;
+            /* Adjust height as needed */
+
+        }
+
+        .header-box h2 {
+            font-size: 3rem;
+            /* Forcefully increase text size */
+            margin: 0;
+            /* Removes extra margins around the heading */
+            line-height: 1.2;
+            /* Adjust line height for readability */
+        }
+
+        .vest-image img {
+            display: block;
+            /* Ensures the image is treated as a block element */
+            max-width: 100%;
+            /* Makes the image responsive */
+            height: auto;
+            /* Preserves the aspect ratio */
+            width: 300px;
+            /* Sets a fixed width, adjust as needed */
+            margin: 0 auto;
+            /* Centers the image */
+            border-radius: 10px;
+            /* Optional: Rounds the corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Optional: Adds a subtle shadow */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/Turtle Shelter Project.png" alt="Turtle Shelter Project Logo"
+                    class="rounded-circle logo">
+                <span style="font-weight: bold; font-size: 1.7rem; color: #f8f9fa; margin-left: 10px;">
+                    Turtle Shelter Project
+                </span>
+            </a>
+
+            <!-- Collapsible Navbar -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <!-- Navigation Tabs -->
+
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a id="about-us" class="nav-link fw-semibold px-3"
+                            style="color: #f8f9fa; transition: color 0.3s ease;"
+                            onmouseover="this.style.color='#6c757d';" onmouseout="this.style.color='#f8f9fa';"
+                            href="jenStory.html">Jen's Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="get-involved" class="nav-link fw-semibold px-3"
+                            style="color: #f8f9fa; transition: color 0.3s ease;"
+                            onmouseover="this.style.color='#6c757d';" onmouseout="this.style.color='#f8f9fa';"
+                            href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="staff-login" class="nav-link fw-semibold px-3"
+                            style="color: #f8f9fa; transition: color 0.3s ease;"
+                            onmouseover="this.style.color='#6c757d';" onmouseout="this.style.color='#f8f9fa';"
+                            href="staffView.html">Staff View</a>
+                    </li>
+                </ul>
+
+                <!-- Donate Button -->
+                <a href="donate.html" class="btn btn-danger fw-semibold px-4 ms-3">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+        style="text-align: center; background-image: url('/images/slc.jpeg'); background-size: cover; background-position: center 37%; background-repeat: no-repeat; height: 275px; background-color: rgba(0, 0, 0, 0.5); padding: 20px;">
+        <div class="container">
+            <div class="container">
+                <br> <br>
+                <h1 style="color: white; font-weight: bolder; font-size: 3rem; text-shadow: 2px 2px 5px black;"
+                    class="display-4">
+                    Changing Lives, One Vest at a Time
+                </h1>
+                <br>
+                <p style="color: white; font-size: 1.5rem; text-shadow: 2px 2px 5px black;" class="lead">
+                    Portable warmth you can carry with you, just like a turtle.
+            </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="background-container">
+        <main class="container my-3">
+            <div class="row justify-content-center">
+                <!-- Left Column -->
+                <div class="col-md-8 text-center">
+                    <!-- Centered Heading -->
+                    <h2>What is a Turtle Shelter Vest?</h2>
+
+                    <div class="row align-items-center mt-4">
+                        <p class="vest-image">
+                            <img src="/images/vests.webp" alt="Vests">
+                        </p>
+                        <p style="text-align: center; margin-top: 20px;">
+                            Homelessness is a growing epidemic, leaving many vulnerable to the
+                            dangers of extreme cold. The Turtle Shelter vests are designed to keep people warm
+                            in freezing weather, even in temperatures as low as 10 degrees below
+                            zero. They are lightweight, easy to carry, and simple to use.
+                            By providing warmth and comfort, these vests can SAVE lives and
+                            help people who are struggling to stay safe in the cold.
+                        </p>
+
+                        <!-- Call to Action -->
+                        <p style="font-size: 25px; text-align: center;">We need YOUR help to make as many Turtle Shelter
+                            Vests as possible! You can contribute in 3 different ways:
+                            <br>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Row with Three Containers -->
+            <div class="row g-4">
+                <!-- Container 1 -->
+                <div class="col-md-4">
+                    <div class="card shadow-lg text-center p-4">
+                        <h3 class="card-title">Want to Join an Existing Event?</h3>
+                        <p class="card-text mt-3">
+                            Find and join an event near you to help make Turtle Shelter Vests and save lives this
+                            winter. Together, we can make an impact and save lives—one vest at a time!
+                        </p>
+                        <a href="existingPublicEvents.html" class="btn btn-success mt-3">Find Events</a>
+                    </div>
+                </div>
+
+                <!-- Container 2 -->
+                <div class="col-md-4">
+                    <div class="card shadow-lg text-center p-4">
+                        <h3 class="card-title">Want to Organize an Event?</h3>
+                        <p class="card-text mt-3">
+                            Fill out our short form to gather your friends, community members, or church groups and host
+                            an event to make Turtle Shelter Vests. Let's make a difference!
+                        </p>
+                        <a class="btn btn-primary mt-3" href="addEvent.html">Organize an Event</a>
+                    </div>
+                </div>
+
+                <!-- Container 3 -->
+                <div class="col-md-4">
+                    <div class="card shadow-lg text-center p-4">
+                        <h3 class="card-title">Want to Support an Event?</h3>
+                        <p class="card-text mt-3">
+                            Can't attend? Support us by donating resources, becoming a sponsor, or spreading the word to
+                            help make a bigger impact. Your support can make a life-changing impact!
+                        </p>
+                        <a class="btn btn-secondary mt-3" href="getInvolved.html">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="who-weve-helped-wrapper">
+                <!-- Header -->
+                <div class="header-box">
+                    <h2>Who We've Helped</h2>
+                </div>
+                <!-- Section -->
+                <section class="who-weve-helped-section">
+                    <div class="container">
+                        <div class="who-weve-helped-row">
+                            <!-- Card 1 -->
+                            <div class="who-weve-helped-card">
+                                <img src="/images/carol.jpeg" alt="Carol">
+                                <h5>Carol</h5>
+                                <p class="subtitle">School Secretary</p>
+                                <p class="description">
+                                    At 60, Carol Thompson found herself homeless on the cold streets of Salt Lake
+                                    City. Once a school secretary, everything changed after a cancer diagnosis.
+                                </p>
+                                <a href="carol.html">Read More</a>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="who-weve-helped-card">
+                                <img src="/images/marcus.jpeg" alt="Marcus">
+                                <h5>Marcus</h5>
+                                <p class="subtitle">RAF Veteran</p>
+                                <p class="description">
+                                    At 45, Marcus Johnson was living on the cold streets of Salt Lake City. Once a
+                                    construction worker, a workplace injury left him homeless.
+                                </p>
+                                <a href="marcus.html">Read More</a>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="who-weve-helped-card">
+                                <img src="/images/burden.jpeg" alt="Burden Family">
+                                <h5>The Burden Family</h5>
+                                <p class="subtitle">Army Family</p>
+                                <p class="description">
+                                    The Burden family, recent immigrants from the Czech Republic, arrived in Salt
+                                    Lake City seeking a better life, but a series of misfortunes left them homeless.
+                                </p>
+                                <a href="burden.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Text -->
+            <div class="row justify-content-center">
+                <!-- Left Column -->
+                <div class="col-md-8 text-center">
+                    <h3>Want to learn more about the Turtle Shell Project?</h3>
+                    <p>
+                        Use our TurtleBot in the bottom right corner to get answers to your questions and learn more
+                        about how we're making a difference
+                        in the lives of those experiencing homelessness.
+                    </p>
+                </div>
+            </div>
+
+            <div class="donation-section"
+                style="background-color: #333; color: #fff; padding: 20px; position: relative; left: 0; right: 0; width: 100%; margin: 40px 0; text-align: center;">
+                <h3 style="margin-bottom: 0px;">Help more people like Carol, Marcus, and the Burden Family</h3>
+                <h3 style="margin-bottom: 20px;">by donating to the Turtle Shelter Project</h3>
+                <p style="margin: 0 auto 30px; max-width: 700px; text-align: center;">
+                    Every donation you give makes a meaningful difference in the lives of those experiencing
+                    homelessness,
+                    providing them with warmth, comfort, and hope during difficult times.
+                </p>
+                <a href="donate.html" class="btn btn-danger" style="font-size: 1rem; padding: 5px 30px;">Donate Now</a>
+            </div>
+
+            <!-- Chat Button -->
+            <div id="chat-button"
+                style="position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000;">
+                💬
+            </div>
+
+            <!-- Chat Box -->
+            <div id="chat-box"
+                style="position: fixed; bottom: 90px; right: 20px; width: 300px; height: 400px; background-color: white; border: 1px solid #ccc; border-radius: 10px; display: none; flex-direction: column; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div
+                    style="background-color: #ffffff; color: rgb(0, 0, 0); font-size: 14px; padding: 10px; text-align: center; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    Curious to learn more? Our Turtle Shelter Project chatbot is here to help!
+                </div>
+                <div id="chat-messages"
+                    style="flex: 1; padding: 10px; overflow-y: auto; font-size: 14px; background-color: #f8f9fa;">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div style="padding: 10px; border-top: 1px solid #ccc; display: flex; align-items: center; gap: 10px;">
+                    <input id="chat-input" type="text" placeholder="Type a message..."
+                        style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 20px; outline: none; font-size: 14px;">
+                    <button id="chat-send"
+                        style="background-color: #43484d; color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer;">Send</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="social-links">
+            <a href="https://www.facebook.com/turtleshelterproject/" target="_blank" class="social-icon"
+                style="color: #4267B2; margin: 0 10px;">
+                <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon" style="color: #E1306C; margin: 0 10px;">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" style="color: #0077B5; margin: 0 10px;">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+        <p style="margin-top: 10px;">© 2024 Turtle Shelter Vest - Together, We Can Save Lives</p>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('chat-button').addEventListener('click', () => {
+            const chatBox = document.getElementById('chat-box');
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Toggle chat box visibility
+            if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+                chatBox.style.display = 'flex';
+
+                // Debugging: Log chatbox opening
+                console.log("Chatbox opened.");
+
+                // Check if there are no messages in the chatbox
+                if (chatMessages.children.length === 0) {
+                    console.log("Adding welcome message...");
+
+                    const botMessageDiv = document.createElement('div');
+                    botMessageDiv.style.textAlign = 'left';
+                    botMessageDiv.innerHTML = `<span>🐢 Hi I'm Turtle Bot! Would you like to learn more about the Turtle Shelter Project?</span>`;
+                    chatMessages.appendChild(botMessageDiv);
+                } else {
+                    console.log("Welcome message already exists.");
+                }
+            } else {
+                chatBox.style.display = 'none';
+                console.log("Chatbox closed.");
+            }
+        });
+
+        document.getElementById('chat-send').addEventListener('click', async () => {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const userMessage = input.value.trim();
+
+            if (!userMessage) return;
+
+            // Display the user's message
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.style.textAlign = 'right';
+            userMessageDiv.textContent = userMessage;
+            messages.appendChild(userMessageDiv);
+            input.value = '';
+
+            // Send message to the server
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question: userMessage }),
+                });
+                const data = await response.json();
+
+                // Display the bot's response
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.style.textAlign = 'left';
+                botMessageDiv.textContent = `🐢 ${data.message}`;
+                messages.appendChild(botMessageDiv);
+                messages.scrollTop = messages.scrollHeight;
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
+        });
+
+    </script>
+</body>
+
+</html>

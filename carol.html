@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We've Helped 3 - Turtle Shelter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- CloudFlare-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .background-container {
+            background-color: #f7f7f7;
+            margin: 60px auto;
+            /* Adds vertical spacing and centers the container */
+            padding: 20px;
+            width: 90%;
+            /* Adjust width to fill most of the page */
+            max-width: 1200px;
+            /* Sets a maximum width for larger screens */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Optional: Subtle shadow */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+        }
+
+        /* Header Box Styling */
+        .header-box {
+            display: flex;
+            /* Enables flexbox */
+            justify-content: center;
+            /* Centers text horizontally */
+            align-items: center;
+            /* Centers text vertically */
+            color: #333;
+            /* Light gray background */
+            border: 0px solid #ddd;
+            /* Subtle border */
+            padding: 20px;
+            /* Adds space inside the box */
+            text-align: center;
+            /* Centers text alignment inside the box */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+            /* Optional: Subtle shadow */
+            width: 100%;
+            /* Full width of the container */
+            height: 100px;
+            /* Adjust height as needed */
+        }
+
+        .emphasized-line {
+            font-size: 1.5rem;
+            /* Larger text */
+            font-family: 'Georgia', 'Cursive', sans-serif;
+            /* Curly font */
+            font-style: italic;
+            /* Italics */
+            text-align: center;
+            /* Center-align the text */
+            margin: 20px 0;
+            /* Add vertical spacing */
+            color: #333;
+            /* Darker color for emphasis */
+        }
+
+        .photo-caption {
+            font-size: 0.8rem;
+            /* Smaller text size */
+            color: rgba(0, 0, 0, 0.6);
+            /* Faded text (60% opacity) */
+            margin-top: 5px;
+            /* Small spacing above the text */
+            font-style: italic;
+            /* Optional: Italics for subtle emphasis */
+        }
+
+        .logo {
+            width: 40px;
+            /* Adjust this size as needed */
+            height: 40px;
+            /* Match width for a perfect circle */
+            object-fit: cover;
+            /* Ensures the image is properly cropped */
+            border-radius: 50%;
+            /* Makes the image a perfect circle */
+            border: 2px solid #f8f9fa;
+            /* Optional: add a border for a polished look */
+        }
+
+
+        .background-image {
+            width: 80%;
+            /* Image will take the full width of the container */
+            height: auto;
+            /* Maintain aspect ratio */
+            display: block;
+            /* Removes the inline spacing below the image */
+        }
+
+        .img-fluid {
+            width: 80%;
+            /* Responsive image width */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 10px;
+            /* Optional: Rounded image corners */
+        }
+
+        .story-container {
+            margin-top: 40px;
+            /* Adds space above the story (if needed) */
+            padding: 20px;
+            /* Optional: Adds inner spacing for better readability */
+            line-height: 1.6;
+            /* Improves story text readability */
+        }
+
+        .page-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #857e7e;
+            /* Neutral tone */
+            color: #fff;
+            /* White text */
+            text-decoration: none;
+            /* Remove underline */
+            border-radius: 25px;
+            /* Smooth rounded corners */
+            font-size: 1rem;
+            /* Adjust font size */
+            font-weight: 600;
+            /* Semi-bold text */
+            margin-top: 20px;
+            /* Add spacing from other elements */
+            text-align: center;
+            /* Center-align text inside the button */
+            transition: background-color 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        .page-button:hover {
+            background-color: #333;
+            /* Darker shade on hover */
+            color: #fff;
+            /* Ensure text stays white */
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/Turtle Shelter Project.png" alt="Turtle Shelter Project Logo"
+                    class="rounded-circle logo">
+                <span style="font-weight: bold; font-size: 1.7rem; color: #f8f9fa; margin-left: 10px;">
+                    Turtle Shelter Project
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold px-3" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold px-3" href="/jenStory">Jen's Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold px-3" href="/getInvolved">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold px-3" href="/staffLogin">Staff Login</a>
+                    </li>
+                </ul>
+                <a href="/donate" class="btn btn-danger fw-semibold px-4 ms-3">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+        style="display: flex; justify-content: center; align-items: center; text-align: center; background-image: url('/images/slc.jpeg'); background-size: cover; background-position: center 29%; background-repeat: no-repeat; height: 150px; background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+
+        <div class="container">
+            <h1 style="color: white; font-weight: bolder; font-size: 3rem; text-shadow: 2px 2px 5px black;"
+                class="display-4">
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="background-container">
+        <main class="container my-5">
+            <!-- Main Content -->
+            <!-- Photo of Carol -->
+            <div class="text-center mb-4">
+                <div class="image-container">
+                    <img src="/images/carol.jpeg" alt="Carol" class="img-fluid rounded" class="background-image">
+                    <p class="photo-caption">From the brink of despair to a life renewed: how the Turtle Shelter vest
+                        gave Carol a fighting chance.</p>
+                </div>
+            </div>
+
+
+            <!-- Story Content -->
+            <div class="story-container">
+                <p>
+                    At 60, Carol Thompson found herself homeless on the cold streets of Salt Lake City. Once a dedicated
+                    school secretary living a quiet life in Ogden, Carol never imagined her life would take such a
+                    devastating turn. Everything began to unravel after a cancer diagnosis turned her world upside down.
+                    The
+                    treatments were grueling, and though Carol survived, the financial aftermath was crushing. The
+                    medical
+                    bills drained her savings, leaving her unable to keep up with her mortgage payments. As her home
+                    slipped
+                    away, so too did the sense of security she had spent a lifetime building.
+                </p>
+
+                <p>
+                    With no immediate family to turn to, Carol faced her first winter on the streets with nothing but a
+                    small bag of belongings and a few layers of clothing. The Utah winters were merciless, with
+                    temperatures regularly plunging well below freezing. Carol sought shelter in public libraries, under
+                    bridges, and in emergency warming centers, but the cold always seemed to find her. Each night, as
+                    she huddled in alleyways or beneath overhangs, she wondered if she would survive until morning. The
+                    physical toll of the cold was immense, but the emotional weight of her situation often felt
+                    unbearable.
+                </p>
+
+                <p>
+                    One November evening, as Carol stood in line at a local soup kitchen, she met volunteers from the
+                    Turtle Shelter Organization. Among the items they were distributing was a high-tech warmth vest.
+                    Carol hesitated as a volunteer explained its features: lightweight and powered by a rechargeable
+                    battery, the vest was made from advanced thermal materials designed to retain heat even in sub-zero
+                    temperatures. Though skeptical, Carol accepted the vest and slipped it on. Almost instantly, she
+                    felt warmth spreading through her body—a sensation she hadn’t experienced in years.
+                </p>
+
+                <p>
+                    That night, wrapped in the warmth of the vest, Carol was finally able to sleep without shivering.
+                    For the first time in what felt like an eternity, she felt safe. The vest became her constant
+                    companion, shielding her from the elements and giving her a small but vital sense of security. With
+                    her immediate need for warmth alleviated, Carol began to focus on rebuilding her life. She visited
+                    community resource centers and connected with housing programs that she had previously been too
+                    overwhelmed to seek out.
+                </p>
+
+                <p>
+                    Through the support of the Turtle Shelter Organization, Carol was able to secure temporary housing
+                    in a small room at a community center. With a roof over her head and the warmth vest still by her
+                    side, Carol felt her spirit begin to heal. Determined to give back, she started volunteering at a
+                    local food pantry, using her organizational skills to help others in need. The experience gave her a
+                    renewed sense of purpose and helped her reconnect with her community.
+                </p>
+
+                <p>
+                    Today, Carol reflects on her journey with a mixture of gratitude and hope. The Turtle Shelter vest
+                    wasn’t just a piece of clothing—it was a lifeline that allowed her to survive one of the darkest
+                    chapters of her life. More than that, it was a symbol of the compassion and resilience that can
+                    carry us through even the coldest of times. For Carol, the vest wasn’t just about warmth; it was the
+                    spark that reignited her belief in a brighter future.
+                </p>
+
+            </div>
+                <div class="text-center my-4">
+                    <a href="/getInvolved" class="page-button">Want to get involved? Click here to see how</a>
+                </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="social-links">
+            <a href="https://www.facebook.com/turtleshelterproject/" target="_blank" class="social-icon"
+                style="color: #4267B2; margin: 0 10px;">
+                <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon" style="color: #E1306C; margin: 0 10px;">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" style="color: #0077B5; margin: 0 10px;">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+        <p style="margin-top: 10px;">© 2024 Turtle Shelter Vest - Together, We Can Save Lives</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
